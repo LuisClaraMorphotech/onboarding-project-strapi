@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blocks_product_rows",
+  "info": {
+    "displayName": "Product-Row"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "componentType":{
+      "type": "string"
+    },
+    "card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.product-card"
+    }
+  }
+}
