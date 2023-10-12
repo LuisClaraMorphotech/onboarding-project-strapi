@@ -29,7 +29,7 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.product-row"
+        "blocks.card-row"
       ]
     }
   }

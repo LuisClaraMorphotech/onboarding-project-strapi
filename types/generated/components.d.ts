@@ -1,5 +1,22 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlocksCardRow extends Schema.Component {
+  collectionName: 'components_blocks_card_rows';
+  info: {
+    displayName: 'Card-Row';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    cardType: Attribute.Relation<
+      'blocks.card-row',
+      'oneToOne',
+      'api::card.card'
+    >;
+  };
+}
+
 export interface BlocksCta extends Schema.Component {
   collectionName: 'components_blocks_ctas';
   info: {
@@ -41,12 +58,16 @@ export interface BlocksProductRow extends Schema.Component {
   collectionName: 'components_blocks_product_rows';
   info: {
     displayName: 'Product-Row';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
-    componentType: Attribute.String;
-    card: Attribute.Component<'elements.product-card', true>;
+    card: Attribute.Relation<
+      'blocks.product-row',
+      'oneToOne',
+      'api::card.card'
+    >;
   };
 }
 
@@ -162,6 +183,7 @@ export interface SeoMetaData extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blocks.card-row': BlocksCardRow;
       'blocks.cta': BlocksCta;
       'blocks.hero': BlocksHero;
       'blocks.pricing': BlocksPricing;

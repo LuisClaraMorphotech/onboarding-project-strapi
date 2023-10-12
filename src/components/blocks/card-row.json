@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_blocks_product_rows",
+  "collectionName": "components_blocks_card_rows",
   "info": {
-    "displayName": "Product-Row",
+    "displayName": "Card-Row",
     "description": ""
   },
   "options": {},
@@ -12,7 +12,7 @@
     "description": {
       "type": "string"
     },
-    "card": {
+    "cardType": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::card.card"

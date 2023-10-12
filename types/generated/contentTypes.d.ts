@@ -713,6 +713,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
+    products: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -782,7 +787,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
   attributes: {
     stockKeepingUnit: Attribute.UID;
     name: Attribute.String;
-    description: Attribute.Text;
     price: Attribute.String;
     images: Attribute.Media;
     coverImage: Attribute.Media;
@@ -794,6 +798,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
     comingSoon: Attribute.Boolean & Attribute.DefaultTo<false>;
     dimensions: Attribute.JSON;
     specifications: Attribute.RichText;
+    description: Attribute.RichText;
+    categories: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -828,7 +838,7 @@ export interface ApiProductPageProductPage extends Schema.SingleType {
     description: Attribute.Text;
     slug: Attribute.String;
     metadata: Attribute.Component<'seo.meta-data'>;
-    blocks: Attribute.DynamicZone<['blocks.product-row']>;
+    blocks: Attribute.DynamicZone<['blocks.card-row']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -18,9 +18,6 @@
     "name": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "price": {
       "type": "string"
     },
@@ -64,6 +61,15 @@
     },
     "specifications": {
       "type": "richtext"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
     }
   }
 }

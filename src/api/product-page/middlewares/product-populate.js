@@ -14,18 +14,7 @@ const populate = {
     },
   },
   blocks: {
-    populate: {
-      card: {
-        populate: {
-          image: {
-            fields: ["name", "alternativeText", "url"],
-          },
-          link: {
-            populate: true,
-          },
-        },
-      },
-    },
+    populate: ["cardType"],
   },
 };
 
@@ -37,7 +26,6 @@ module.exports = (config, { strapi }) => {
       populate,
       ...ctx.query,
     };
-    console.log(ctx.query);
     await next();
   };
 };
